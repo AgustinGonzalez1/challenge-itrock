@@ -10,7 +10,7 @@ const loginPage = () => {
             <span className="text-xl font-bold text-white">M</span>
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">Iniciar Sesión</h2>
-          <p className="mt-2 text-sm text-gray-600">Ingresa a tu cuenta para continuar</p>
+          <p className="mt-2 text-sm text-gray-600">Bienvenido de nuevo a codeconecta</p>
         </div>
 
         {/* Form */}

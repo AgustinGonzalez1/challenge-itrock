@@ -1,3 +1,9 @@
 // UI Components
-export { InputForm, LoginForm } from './ui';
-export type { InputFormProps, LoginFormProps, LoginFormData } from './ui';
+export { InputForm, LoginForm, RegisterForm } from './ui';
+export type {
+  InputFormProps,
+  LoginFormProps,
+  LoginFormData,
+  RegisterFormProps,
+  RegisterFormData,
+} from './ui';

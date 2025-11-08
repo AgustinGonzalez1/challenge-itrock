@@ -5,6 +5,9 @@ import { InputForm } from '@/components';
 import Link from 'next/link';
 import { Mail, Lock, User } from 'lucide-react';
 import { RegisterFormData, RegisterFormProps } from './types';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 const RegisterForm = ({ onSubmit, isLoading = false }: RegisterFormProps) => {
   const {
@@ -13,14 +16,35 @@ const RegisterForm = ({ onSubmit, isLoading = false }: RegisterFormProps) => {
     formState: { errors, isSubmitting },
   } = useForm<RegisterFormData>();
 
-  const loading = isLoading || isSubmitting;
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push('/');
+    }
+  }, [session, router]);
+
+  const handleFormSubmit = async (data: RegisterFormData) => {
+    fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: data.name, email: data.email, password: data.password }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          router.push('/auth/login');
+        }
+      })
+      .catch((error) => {
+        console.error('Error en el registro:', error);
+      });
+  };
 
   return (
     <div className="rounded-2xl bg-white p-8 shadow-xl">
-      <form
-        className="space-y-6"
-        onSubmit={handleSubmit(onSubmit || ((data) => console.log('Form Data:', data)))}
-      >
+      <form className="space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
         {/* Name */}
         <InputForm
           title="Nombre Completo"

@@ -33,6 +33,8 @@ const LoginForm = ({ isLoading = false }: LoginFormProps) => {
           email: session.user.email || '',
         }),
       );
+      //Lo agrego aca para no perder el tiempo en middlewares, mayor escalabilidad a futuro
+      router.push('/');
     } else {
       dispatch(clearUser());
     }

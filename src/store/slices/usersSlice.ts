@@ -34,6 +34,12 @@ const initialState: UsersState = {
       email: 'test@test.com',
       password: '123456',
     },
+    {
+      id: '3',
+      name: 'Jane Doe',
+      email: 'admin@mvpfinancials.com',
+      password: 'admin123',
+    },
   ],
   loading: false,
   error: null,

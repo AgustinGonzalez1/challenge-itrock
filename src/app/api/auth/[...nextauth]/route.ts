@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GitHubProvider from 'next-auth/providers/github';
 import { NextAuthOptions } from 'next-auth';
 import { store } from '@/store';
 
@@ -36,6 +37,10 @@ export const authOptions: NextAuthOptions = {
 
         return null;
       },
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
   ],
   session: {

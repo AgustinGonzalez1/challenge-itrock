@@ -5,8 +5,17 @@ import { InputForm } from '@/components';
 import Link from 'next/link';
 import { Mail, Lock } from 'lucide-react';
 import { LoginFormData, LoginFormProps } from './types';
+import { signIn, useSession } from 'next-auth/react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { clearUser, setUser, useAppDispatch } from '@/store/store';
 
-const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
+const LoginForm = ({ isLoading = false }: LoginFormProps) => {
+  const [error, setError] = useState('');
+  const router = useRouter();
+  const { data: session, status } = useSession();
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
@@ -15,12 +24,43 @@ const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
 
   const loading = isLoading || isSubmitting;
 
+  useEffect(() => {
+    if (session?.user) {
+      dispatch(
+        setUser({
+          id: (session.user as any).id,
+          name: session.user.name || '',
+          email: session.user.email || '',
+        }),
+      );
+    } else {
+      dispatch(clearUser());
+    }
+  }, [session, dispatch]);
+
+  const handleFormSubmit = async (data: LoginFormData) => {
+    setError('');
+
+    try {
+      const result = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError('Email o contraseña incorrectos');
+      } else {
+        router.push('/');
+      }
+    } catch (error) {
+      setError('Error inesperado. Intenta de nuevo.');
+    }
+  };
+
   return (
     <div className="rounded-2xl bg-white p-8 shadow-xl">
-      <form
-        className="space-y-6"
-        onSubmit={handleSubmit(onSubmit || ((data) => console.log('Form Data:', data)))}
-      >
+      <form className="space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
         {/* Email */}
         <InputForm
           title="Correo Electrónico"
@@ -65,6 +105,9 @@ const LoginForm = ({ onSubmit, isLoading = false }: LoginFormProps) => {
             </a>
           </div>
         </div>
+
+        {/* Error message */}
+        {error && <div className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</div>}
 
         {/* Submit button */}
         <div>

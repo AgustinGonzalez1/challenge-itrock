@@ -7,3 +7,6 @@ export type {
   RegisterFormProps,
   RegisterFormData,
 } from './ui';
+
+// Auth Provider
+export { AuthProvider } from './AuthProvider';

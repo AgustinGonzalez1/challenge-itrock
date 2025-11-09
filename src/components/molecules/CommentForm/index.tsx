@@ -48,7 +48,7 @@ const CommentForm = ({ postId, onSubmit }: CommentFormProps) => {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         placeholder="Escribe tu comentario..."
-        className="w-full rounded-lg border border-gray-300 p-3 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
+        className="w-full rounded-lg border border-gray-300 p-3 text-sm text-black focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
         rows={3}
         disabled={isSubmitting}
       />

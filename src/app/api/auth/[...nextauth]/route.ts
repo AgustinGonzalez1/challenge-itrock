@@ -9,7 +9,7 @@ const getUsersFromStore = () => {
   return state.users.registeredUsers;
 };
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: 'credentials',

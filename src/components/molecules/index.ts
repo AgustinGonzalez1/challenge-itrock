@@ -1,4 +1,4 @@
-// Molecules - Combinación de atoms con funcionalidad específica
+// Molecules - Combination of atoms with specific functionality
 export { default as Navbar } from './Navbar';
 export { default as PostCard } from './PostCard';
 export { default as CommentsList } from './CommentsList';

@@ -1,4 +1,4 @@
-// Interfaces para posts y comentarios
+// Interfaces for posts and comments
 export interface Post {
   id: string;
   title: string;
@@ -9,7 +9,7 @@ export interface Post {
   updatedAt?: string;
   comments?: Comment[];
   likesCount?: number;
-  likedBy?: string[]; // Array de IDs de usuarios que dieron like
+  likedBy?: string[]; // Array of user IDs who liked the post
 }
 
 export interface Comment {

@@ -14,7 +14,7 @@ const PostActions = ({
   const { user } = useAppSelector((state) => state.auth);
   const { posts } = useAppSelector((state) => state.posts);
 
-  // Obtener el post actual para verificar si el usuario le dio like
+  // Get current post to verify if user liked it
   const post = posts.find((p) => p.id === postId);
   const hasLiked = post?.likedBy?.includes(user?.id || '') || false;
 

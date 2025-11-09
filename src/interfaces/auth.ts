@@ -1,4 +1,4 @@
-// Interfaces para formularios de autenticación
+// Interfaces for authentication forms
 export interface LoginFormData {
   email: string;
   password: string;

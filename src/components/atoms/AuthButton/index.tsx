@@ -12,7 +12,7 @@ const AuthButton = () => {
   const { data: session, status } = useSession();
   const { user } = useAppSelector((state) => state.auth);
 
-  // Determinar si hay sesión activa
+  // Determine if there's an active session
   const isLoggedIn = session?.user || user;
   const isLoading = status === 'loading';
 

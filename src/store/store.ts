@@ -1,4 +1,4 @@
-export { store } from './index';
+export { store, persistor } from './index';
 export type { RootState, AppDispatch } from './index';
 export { useAppDispatch, useAppSelector } from './hooks';
 export { StoreProvider } from './StoreProvider';

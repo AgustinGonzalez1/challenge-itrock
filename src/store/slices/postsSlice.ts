@@ -3,7 +3,7 @@ import { PostsState, Post, Comment, CreatePostData, CreateCommentData } from '@/
 
 const initialState: PostsState = {
   posts: [
-    // Posts mock para desarrollo
+    // Mock posts for development
     {
       id: '1',
       title: 'Primer post de la plataforma',
@@ -116,7 +116,7 @@ export const postsSlice = createSlice({
       state.posts.unshift(newPost);
     },
 
-    // Likes - Sistema mejorado que controla un like por usuario
+    // Likes - Improved system that controls one like per user
     toggleLike: (state, action: PayloadAction<{ postId: string; userId: string }>) => {
       const { postId, userId } = action.payload;
       const post = state.posts.find((p) => p.id === postId);
@@ -128,11 +128,11 @@ export const postsSlice = createSlice({
         const hasLiked = post.likedBy.includes(userId);
 
         if (hasLiked) {
-          // Quitar like
+          // Remove like
           post.likedBy = post.likedBy.filter((id) => id !== userId);
           post.likesCount = (post.likesCount || 1) - 1;
         } else {
-          // Agregar like
+          // Add like
           post.likedBy.push(userId);
           post.likesCount = (post.likesCount || 0) + 1;
         }

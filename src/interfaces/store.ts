@@ -1,10 +1,10 @@
-// Interfaces para usuarios y store
+// Interfaces for users and store
 export interface User {
   id: string;
   name: string;
   email: string;
   password: string;
-  posts?: string[]; // Solo IDs de posts, no los objetos completos
+  posts?: string[]; // Only post IDs, not the complete objects
 }
 
 export interface UserLogin {
@@ -20,7 +20,7 @@ export interface RegisterData {
   password: string;
 }
 
-// Interfaces para el estado del store
+// Interfaces for store state
 export interface UsersState {
   registeredUsers: User[];
   loading: boolean;

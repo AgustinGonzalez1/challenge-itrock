@@ -58,18 +58,7 @@ El proyecto se ejecutará en [http://localhost:3000](http://localhost:3000)
 
 ## 🔐 Variables de entorno
 
-Para facilitar la instalación y que puedas levantar el proyecto lo más rápido posible, las variables de entorno están visibles en el archivo `.env`:
-
-```env
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=Iu7x4L3R9pQ2sVt8mN0bZc6YfHjKp1Wx
-
-# GitHub OAuth
-GITHUB_CLIENT_ID=Iv23liLuEQSu4PNSZGzS
-GITHUB_CLIENT_SECRET=a894189cf4266757ee5a6c4547d6ab4fb1b34429
-```
-
-**Nota:** En un proyecto de producción real, estas variables estarían en `.env.local` y no se subirían al repositorio.
+Para facilitar la instalación y testing, se incluye un archivo `.env` con las variables necesarias para que el proyecto funcione de inmediato.
 
 ## 🏗️ Tecnologías utilizadas
 

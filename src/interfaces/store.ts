@@ -4,6 +4,7 @@ export interface User {
   name: string;
   email: string;
   password: string;
+  posts?: string[]; // Solo IDs de posts, no los objetos completos
 }
 
 export interface UserLogin {

@@ -8,12 +8,14 @@ const initialState: UsersState = {
       name: 'Admin User',
       email: 'admin@test.com',
       password: '123456',
+      posts: [],
     },
     {
       id: '2',
       name: 'Test User',
       email: 'test@test.com',
       password: '123456',
+      posts: [],
     },
   ],
   loading: false,
@@ -33,6 +35,7 @@ export const usersSlice = createSlice({
       const newUser: User = {
         id: Date.now().toString(),
         ...action.payload,
+        posts: [],
       };
       state.registeredUsers.push(newUser);
       state.loading = false;

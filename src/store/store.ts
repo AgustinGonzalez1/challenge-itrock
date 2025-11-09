@@ -8,3 +8,14 @@ export { setUser, clearUser } from './slices/authSlice';
 
 // Users
 export { registerStart, registerSuccess, findUserByEmail } from './slices/usersSlice';
+
+// Posts
+export {
+  setLoading,
+  setError,
+  setPosts,
+  addPost,
+  toggleLike,
+  addComment,
+  setSelectedPost,
+} from './slices/postsSlice';

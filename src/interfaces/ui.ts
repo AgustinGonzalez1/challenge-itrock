@@ -1,6 +1,6 @@
 import { UseFormRegister, FieldErrors, FieldValues, Path } from 'react-hook-form';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
-import { Post } from './posts';
+import { Post, Comment } from './posts';
 
 export interface InputFormProps<T extends FieldValues> {
   title: string;
@@ -34,23 +34,30 @@ export interface PostActionsProps {
   likesCount?: number;
   commentsCount?: number;
   onComment?: (postId: string) => void;
-  onLike?: (postId: string) => void;
 }
 
 export interface PostsListProps {
-  posts: Post[];
   loading?: boolean;
   error?: string | null;
-  onComment?: (postId: string) => void;
-  onLike?: (postId: string) => void;
 }
 
 export interface PostCardProps {
   post: Post;
-  onComment?: (postId: string) => void;
-  onLike?: (postId: string) => void;
 }
 
 export interface AuthProviderProps {
   children: React.ReactNode;
+}
+
+export interface CommentsListProps {
+  comments: Comment[];
+}
+
+export interface CommentFormProps {
+  postId: string;
+  onSubmit?: () => void;
+}
+
+export interface PostInteractionsProps {
+  post: Post;
 }

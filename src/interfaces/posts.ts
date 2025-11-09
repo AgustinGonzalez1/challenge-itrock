@@ -4,16 +4,19 @@ export interface Post {
   title: string;
   content: string;
   authorId: string;
+  authorName?: string;
   createdAt: string;
   updatedAt?: string;
   comments?: Comment[];
   likesCount?: number;
+  likedBy?: string[]; // Array de IDs de usuarios que dieron like
 }
 
 export interface Comment {
   id: string;
   postId: string;
   authorId: string;
+  authorName?: string;
   content: string;
   createdAt: string;
   updatedAt?: string;

@@ -1,21 +1,32 @@
 'use client';
 
 import { PostActionsProps } from '@/interfaces/ui';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { toggleLike } from '@/store/slices/postsSlice';
 
 const PostActions = ({
   postId,
   likesCount = 0,
   commentsCount = 0,
   onComment,
-  onLike,
 }: PostActionsProps) => {
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.auth);
+  const { posts } = useAppSelector((state) => state.posts);
+
+  // Obtener el post actual para verificar si el usuario le dio like
+  const post = posts.find((p) => p.id === postId);
+  const hasLiked = post?.likedBy?.includes(user?.id || '') || false;
+
   const handleLike = () => {
-    console.log('Like clicked for post:', postId);
-    onLike?.(postId);
+    if (user) {
+      dispatch(toggleLike({ postId, userId: user.id }));
+    } else {
+      console.log('User must be logged in to like posts');
+    }
   };
 
   const handleComment = () => {
-    console.log('Comment clicked for post:', postId);
     onComment?.(postId);
   };
 
@@ -23,9 +34,16 @@ const PostActions = ({
     <div className="flex items-center space-x-4">
       <button
         onClick={handleLike}
-        className="flex items-center space-x-1 text-gray-600 transition-colors hover:text-blue-600"
+        className={`flex items-center space-x-1 transition-colors ${
+          hasLiked ? 'text-red-600 hover:text-red-700' : 'text-gray-600 hover:text-blue-600'
+        }`}
       >
-        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="h-5 w-5"
+          fill={hasLiked ? 'currentColor' : 'none'}
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

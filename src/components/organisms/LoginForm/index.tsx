@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { InputForm } from '@/components';
+import { InputForm } from '@/components/atoms';
 import Link from 'next/link';
 import { Mail, Lock } from 'lucide-react';
 import { LoginFormData, LoginFormProps } from '@/interfaces';

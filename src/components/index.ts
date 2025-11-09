@@ -1,12 +1,17 @@
-// UI Components
-export { InputForm, LoginForm, RegisterForm } from './ui';
-export type {
-  InputFormProps,
-  LoginFormProps,
-  LoginFormData,
-  RegisterFormProps,
-  RegisterFormData,
-} from './ui';
+// Atoms
+export * from './atoms';
 
-// Auth Provider
-export { AuthProvider } from './AuthProvider';
+// Molecules
+export * from './molecules';
+
+// Organisms
+export * from './organisms';
+
+// Templates
+export * from './templates';
+
+// Providers
+export * from './providers';
+
+// Legacy exports for backward compatibility
+export { default as InputForm } from './atoms/Input';

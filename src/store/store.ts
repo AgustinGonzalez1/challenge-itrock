@@ -5,8 +5,6 @@ export { StoreProvider } from './StoreProvider';
 
 // Auth
 export { setUser, clearUser } from './slices/authSlice';
-export type { UserLogin } from './slices/authSlice';
 
 // Users
 export { registerStart, registerSuccess, findUserByEmail } from './slices/usersSlice';
-export type { User, RegisterData } from './slices/usersSlice';

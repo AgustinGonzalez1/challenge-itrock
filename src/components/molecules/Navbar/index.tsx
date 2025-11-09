@@ -1,4 +1,4 @@
-import { LogoutButton } from '@/components/atoms';
+import { AuthButton } from '@/components/atoms';
 
 const Navbar = () => {
   return (
@@ -12,7 +12,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center">
-            <LogoutButton />
+            <AuthButton />
           </div>
         </div>
       </div>

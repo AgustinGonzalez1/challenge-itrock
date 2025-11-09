@@ -25,8 +25,8 @@ export interface NavbarProps {
   onLogout?: () => void;
 }
 
-export interface LogoutButtonProps {
-  onLogout?: () => void;
+export interface AuthButtonProps {
+  // No necesita props, maneja su estado internamente
 }
 
 export interface PostActionsProps {

@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { InputForm } from '@/components';
 import Link from 'next/link';
 import { Mail, Lock, User } from 'lucide-react';
-import { RegisterFormData, RegisterFormProps } from './types';
+import { RegisterFormData, RegisterFormProps } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';

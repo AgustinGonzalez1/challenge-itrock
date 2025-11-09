@@ -2,7 +2,7 @@
 
 import { Eye, EyeOff } from 'lucide-react';
 import { useState } from 'react';
-import { InputFormProps } from './types';
+import { InputFormProps } from '@/interfaces';
 import { FieldValues } from 'react-hook-form';
 
 const InputForm = <T extends FieldValues>({

@@ -1,24 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-}
-
-export interface RegisterData {
-  name: string;
-  email: string;
-  password: string;
-}
-
-interface UsersState {
-  registeredUsers: User[];
-  loading: boolean;
-  error: string | null;
-  selectedUser: User | null;
-}
+import { User, RegisterData, UsersState } from '@/interfaces';
 
 const initialState: UsersState = {
   registeredUsers: [

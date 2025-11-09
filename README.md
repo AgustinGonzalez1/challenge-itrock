@@ -2,6 +2,10 @@
 
 Una plataforma social moderna construida con Next.js 16, TypeScript, Redux Toolkit, NextAuth y Tailwind CSS. Permite a los desarrolladores compartir posts, dar likes, comentar y conectar entre sí.
 
+## 🌐 Demo en vivo
+
+**URL del proyecto:** [https://challenge-itrock.vercel.app/](https://challenge-itrock.vercel.app/)
+
 ## 🚀 Características
 
 - **Autenticación completa** con NextAuth (credenciales + GitHub OAuth)
@@ -102,7 +106,18 @@ pnpm format       # Formatear código con Prettier
 - Expresión mínima de CSR
 - Server Components optimizados
 
-## Licencia
+## 🚀 Deploy en Vercel
+
+El deploy del proyecto es bastante sencillo. Simplemente subí el repositorio desde GitHub y en el apartado de configuraciones y variables de entorno agregué las 4 variables necesarias para que el proyecto funcione.
+
+**Configuración de OAuth:** Para el deploy creé dos aplicaciones OAuth en GitHub:
+
+- Una para desarrollo local (configurada en las variables de entorno del repositorio)
+- Otra para producción (configurada en las variables de entorno de Vercel)
+
+Esto permite que tanto el entorno local como el de producción funcionen correctamente con la autenticación de GitHub.
+
+## 📄 Licencia
 
 Este proyecto es parte de un challenge técnico para ITRock.
 
